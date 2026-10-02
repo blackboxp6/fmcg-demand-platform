@@ -1,0 +1,17 @@
+.venv/
+__pycache__/
+*.pyc
+
+.env
+
+data/raw/
+data/bronze/
+data/silver/
+data/gold/
+
+models/
+mlruns/
+
+.pytest_cache/
+
+.vscode/
