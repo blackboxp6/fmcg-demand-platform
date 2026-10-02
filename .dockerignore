@@ -1,0 +1,11 @@
+.venv
+.git
+.github
+__pycache__
+*.pyc
+.pytest_cache
+mlruns
+notebooks
+data/raw
+data/bronze
+data/silver

@@ -1,0 +1,52 @@
+services:
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+
+    container_name:
+      fmcg-api
+
+    ports:
+      - "8000:8000"
+
+    restart:
+      unless-stopped
+
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "python",
+          "-c",
+          "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"
+        ]
+
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+
+
+  dashboard:
+    build:
+      context: .
+      dockerfile: Dockerfile.dashboard
+
+    container_name:
+      fmcg-dashboard
+
+    ports:
+      - "8501:8501"
+
+    environment:
+      API_URL:
+        http://api:8000
+
+    depends_on:
+      api:
+        condition: service_healthy
+
+    restart:
+      unless-stopped
