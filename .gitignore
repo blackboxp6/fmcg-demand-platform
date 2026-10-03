@@ -1,17 +1,77 @@
-.venv/
-__pycache__/
-*.pyc
-
+# =========================
+# Environment variables
+# =========================
 .env
+.env.*
+!.env.example
 
+# =========================
+# Python
+# =========================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# =========================
+# Virtual environments
+# =========================
+.venv/
+venv/
+env/
+
+# =========================
+# IDE / OS
+# =========================
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# =========================
+# Local databases
+# =========================
+*.db
+*.sqlite
+*.sqlite3
+mlflow.db
+
+# =========================
+# MLflow local artifacts
+# =========================
+mlruns/
+mlartifacts/
+
+# =========================
+# Model artifacts
+# =========================
+*.pkl
+*.joblib
+*.pickle
+*.onnx
+
+# =========================
+# Logs / cache
+# =========================
+*.log
+logs/
+.cache/
+.pip-repair/
+
+# =========================
+# Data
+# =========================
 data/raw/
 data/bronze/
 data/silver/
 data/gold/
 
-models/
-mlruns/
-
-.pytest_cache/
-
-.vscode/
+# =========================
+# Temporary files
+# =========================
+tmp/
+temp/
+*.tmp
